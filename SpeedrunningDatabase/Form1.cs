@@ -121,12 +121,24 @@ namespace SpeedrunningDatabase
 
         private void buttonR_Click(object sender, EventArgs e)
         {
-
+            //tutti le speedrun di uno specifico gioco
+            string query = $"SELECT speedrun.Id, speedrunner.Username,videogame.Title,speedrun.Date,speedrun.Time,speedrun.LeaderboardNumber,speedrun.Platform FROM (videogame JOIN speedrun ON videogame.Id=speedrun.Videogame) JOIN speedrunner ON speedrun.Speedrunner=speedrunner.Id WHERE videogame.Title='{SpeedrunCombo.Text}' ORDER BY speedrun.LeaderboardNumber ASC;";
+            string connectionString = "server=localhost;uid=programma;pwd=12345;database=speedrunning";
+            MySqlConnection connection = new MySqlConnection(connectionString);
+            connection.Open();
+            MySqlCommand com = new MySqlCommand(query, connection);
+            com.ExecuteNonQuery();
+            MySqlDataAdapter adapt = new MySqlDataAdapter(com);
+            DataTable data = new DataTable();
+            adapt.Fill(data);
+            SpeedrunsTable.DataSource = data;
+            connection.Close();
         }
 
         private void buttonG_Click(object sender, EventArgs e)
         {
-            string query = $"SELECT * FROM speedrun WHERE Videogame={SpeedrunCombo.ValueMember};";
+            //riordinare gli speedrunners di uno specifico gioco in ordine di classifica
+            string query = $"SELECT speedrun.Id, speedrunner.Username,videogame.Title,speedrun.Date,speedrun.Time,speedrun.LeaderboardNumber,speedrun.Platform FROM (videogame JOIN speedrun ON videogame.Id=speedrun.Videogame) JOIN speedrunner ON speedrun.Speedrunner=speedrunner.Id WHERE videogame.Title='{SpeedrunCombo.Text}';";
             string connectionString = "server=localhost;uid=programma;pwd=12345;database=speedrunning";
             MySqlConnection connection = new MySqlConnection(connectionString);
             connection.Open();
