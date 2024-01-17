@@ -90,7 +90,17 @@ namespace SpeedrunningDatabase
             DataTable data = new DataTable();
             adapt.Fill(data);
             VideogamesTable.DataSource = data;
+
+            VGQuery = "SELECT DISTINCT Publisher FROM videogame;";
+            com=new MySqlCommand(VGQuery, connection);
+            com.ExecuteNonQuery();
+            adapt = new MySqlDataAdapter(com);
+            data = new DataTable();
+            adapt.Fill(data);
+            comboBoxVG.DataSource = data;
             connection.Close();
+            comboBoxVG.ValueMember = "Publisher";
+            comboBoxVG.DisplayMember = "Publisher";
         }
 
         private void SpeedrunsButton_Click(object sender, EventArgs e)
@@ -150,6 +160,38 @@ namespace SpeedrunningDatabase
             SpeedrunsTable.DataSource = data;
             connection.Close();
 
+        }
+
+        private void buttonVG_Click(object sender, EventArgs e)
+        {
+            //tutti i giochi di uno specifico pubblicatore
+            string query = $"SELECT * FROM videogame WHERE Publisher='{comboBoxVG.Text}';";
+            string connectionString = "server=localhost;uid=programma;pwd=12345;database=speedrunning";
+            MySqlConnection connection = new MySqlConnection(connectionString);
+            connection.Open();
+            MySqlCommand com = new MySqlCommand(query, connection);
+            com.ExecuteNonQuery();
+            MySqlDataAdapter adapt = new MySqlDataAdapter(com);
+            DataTable data = new DataTable();
+            adapt.Fill(data);
+            VideogamesTable.DataSource = data;
+            connection.Close();
+        }
+
+        private void buttonYear_Click(object sender, EventArgs e)
+        {
+            //tutti i giochi pubblicati in uno specifico anno
+            string query = $"SELECT * FROM videogame WHERE PublishingYear='{textBoxVG.Text}';";
+            string connectionString = "server=localhost;uid=programma;pwd=12345;database=speedrunning";
+            MySqlConnection connection = new MySqlConnection(connectionString);
+            connection.Open();
+            MySqlCommand com = new MySqlCommand(query, connection);
+            com.ExecuteNonQuery();
+            MySqlDataAdapter adapt = new MySqlDataAdapter(com);
+            DataTable data = new DataTable();
+            adapt.Fill(data);
+            VideogamesTable.DataSource = data;
+            connection.Close();
         }
     }
 }
