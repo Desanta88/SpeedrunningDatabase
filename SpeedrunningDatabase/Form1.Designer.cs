@@ -36,11 +36,13 @@
             this.VideogamesButton = new System.Windows.Forms.Button();
             this.VideogamesTable = new System.Windows.Forms.DataGridView();
             this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.SpeedrunsButton = new System.Windows.Forms.Button();
-            this.SpeedrunsTable = new System.Windows.Forms.DataGridView();
-            this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.SpeedrunCombo = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.SpeedrunsButton = new System.Windows.Forms.Button();
+            this.SpeedrunsTable = new System.Windows.Forms.DataGridView();
+            this.buttonR = new System.Windows.Forms.Button();
+            this.buttonG = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.SpeedrunnersTable)).BeginInit();
@@ -125,6 +127,8 @@
             // 
             // tabPage3
             // 
+            this.tabPage3.Controls.Add(this.buttonG);
+            this.tabPage3.Controls.Add(this.buttonR);
             this.tabPage3.Controls.Add(this.label2);
             this.tabPage3.Controls.Add(this.SpeedrunCombo);
             this.tabPage3.Controls.Add(this.label1);
@@ -137,6 +141,32 @@
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Speedruns";
             this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(23, 134);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(98, 13);
+            this.label2.TabIndex = 5;
+            this.label2.Text = "riordina la classifica";
+            // 
+            // SpeedrunCombo
+            // 
+            this.SpeedrunCombo.FormattingEnabled = true;
+            this.SpeedrunCombo.Location = new System.Drawing.Point(23, 60);
+            this.SpeedrunCombo.Name = "SpeedrunCombo";
+            this.SpeedrunCombo.Size = new System.Drawing.Size(121, 21);
+            this.SpeedrunCombo.TabIndex = 3;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(20, 20);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(80, 13);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "filtra per il gioco";
             // 
             // SpeedrunsButton
             // 
@@ -156,31 +186,25 @@
             this.SpeedrunsTable.Size = new System.Drawing.Size(467, 354);
             this.SpeedrunsTable.TabIndex = 0;
             // 
-            // label1
+            // buttonR
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(20, 20);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(80, 13);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "filtra per il gioco";
+            this.buttonR.Location = new System.Drawing.Point(26, 186);
+            this.buttonR.Name = "buttonR";
+            this.buttonR.Size = new System.Drawing.Size(75, 23);
+            this.buttonR.TabIndex = 6;
+            this.buttonR.Text = "Riordina";
+            this.buttonR.UseVisualStyleBackColor = true;
+            this.buttonR.Click += new System.EventHandler(this.buttonR_Click);
             // 
-            // label2
+            // buttonG
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(23, 111);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(98, 13);
-            this.label2.TabIndex = 5;
-            this.label2.Text = "riordina la classifica";
-            // 
-            // SpeedrunCombo
-            // 
-            this.SpeedrunCombo.FormattingEnabled = true;
-            this.SpeedrunCombo.Location = new System.Drawing.Point(23, 60);
-            this.SpeedrunCombo.Name = "SpeedrunCombo";
-            this.SpeedrunCombo.Size = new System.Drawing.Size(121, 21);
-            this.SpeedrunCombo.TabIndex = 3;
+            this.buttonG.Location = new System.Drawing.Point(26, 97);
+            this.buttonG.Name = "buttonG";
+            this.buttonG.Size = new System.Drawing.Size(75, 23);
+            this.buttonG.TabIndex = 7;
+            this.buttonG.Text = "Esegui";
+            this.buttonG.UseVisualStyleBackColor = true;
+            this.buttonG.Click += new System.EventHandler(this.buttonG_Click);
             // 
             // Form1
             // 
@@ -217,6 +241,8 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox SpeedrunCombo;
+        private System.Windows.Forms.Button buttonR;
+        private System.Windows.Forms.Button buttonG;
     }
 }
 

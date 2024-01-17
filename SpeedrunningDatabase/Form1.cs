@@ -14,7 +14,6 @@ namespace SpeedrunningDatabase
 {
     public partial class Form1 : Form
     {
-        public int Countd=0;
         public Form1()
         {
             InitializeComponent();
@@ -80,8 +79,6 @@ namespace SpeedrunningDatabase
 
         private void VideogamesButton_Click(object sender, EventArgs e)
         {
-            List<string> list = new List<string>();
-            DataColumn c = (DataColumn)SpeedrunsTable.Columns[2].Clone();
             string connectionString = "server=localhost;uid=programma;pwd=12345;database=speedrunning";
             MySqlConnection connection = new MySqlConnection(connectionString);
             string VGQuery = "SELECT * FROM videogame";
@@ -101,9 +98,39 @@ namespace SpeedrunningDatabase
             string connectionString = "server=localhost;uid=programma;pwd=12345;database=speedrunning";
             MySqlConnection connection = new MySqlConnection(connectionString);
             string SRUNQuery = "SELECT * FROM speedrun";
+            string VGQuery = "SELECT * FROM videogame";
             connection.Open();
 
             MySqlCommand com = new MySqlCommand(SRUNQuery, connection);
+            MySqlCommand com2 = new MySqlCommand(VGQuery, connection);
+            com.ExecuteNonQuery();
+            MySqlDataAdapter adapt = new MySqlDataAdapter(com);
+            DataTable data = new DataTable();
+            adapt.Fill(data);
+            SpeedrunsTable.DataSource = data;
+            com=new MySqlCommand(VGQuery, connection);
+            adapt=new MySqlDataAdapter(com);
+            data = new DataTable();
+            adapt.Fill(data);
+            SpeedrunCombo.DataSource = data;
+            connection.Close();
+
+            SpeedrunCombo.ValueMember = "Id";
+            SpeedrunCombo.DisplayMember = "Title";
+        }
+
+        private void buttonR_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonG_Click(object sender, EventArgs e)
+        {
+            string query = $"SELECT * FROM speedrun WHERE Videogame={SpeedrunCombo.ValueMember};";
+            string connectionString = "server=localhost;uid=programma;pwd=12345;database=speedrunning";
+            MySqlConnection connection = new MySqlConnection(connectionString);
+            connection.Open();
+            MySqlCommand com = new MySqlCommand(query, connection);
             com.ExecuteNonQuery();
             MySqlDataAdapter adapt = new MySqlDataAdapter(com);
             DataTable data = new DataTable();
@@ -111,10 +138,6 @@ namespace SpeedrunningDatabase
             SpeedrunsTable.DataSource = data;
             connection.Close();
 
-            SpeedrunCombo.DataSource = VideogamesTable.DataSource;
-            SpeedrunCombo.ValueMember = "Id";
-            SpeedrunCombo.DisplayMember = "Videogame";
         }
-
     }
 }
