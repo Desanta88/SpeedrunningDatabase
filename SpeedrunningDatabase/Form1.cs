@@ -193,5 +193,50 @@ namespace SpeedrunningDatabase
             VideogamesTable.DataSource = data;
             connection.Close();
         }
+
+        private void buttonS_Click(object sender, EventArgs e)
+        {
+            string query = $"SELECT * FROM speedrunner WHERE Nationality='{textBoxS.Text}';";
+            string connectionString = "server=localhost;uid=programma;pwd=12345;database=speedrunning";
+            MySqlConnection connection = new MySqlConnection(connectionString);
+            connection.Open();
+            MySqlCommand com = new MySqlCommand(query, connection);
+            com.ExecuteNonQuery();
+            MySqlDataAdapter adapt = new MySqlDataAdapter(com);
+            DataTable data = new DataTable();
+            adapt.Fill(data);
+            SpeedrunnersTable.DataSource = data;
+            connection.Close();
+        }
+
+        private void radioButtonM_CheckedChanged(object sender, EventArgs e)
+        {
+            string query = $"SELECT * FROM speedrunner WHERE Gender='Male';";
+            string connectionString = "server=localhost;uid=programma;pwd=12345;database=speedrunning";
+            MySqlConnection connection = new MySqlConnection(connectionString);
+            connection.Open();
+            MySqlCommand com = new MySqlCommand(query, connection);
+            com.ExecuteNonQuery();
+            MySqlDataAdapter adapt = new MySqlDataAdapter(com);
+            DataTable data = new DataTable();
+            adapt.Fill(data);
+            SpeedrunnersTable.DataSource = data;
+            connection.Close();
+        }
+
+        private void radioButtonF_CheckedChanged(object sender, EventArgs e)
+        {
+            string query = $"SELECT * FROM speedrunner WHERE Gender='Female';";
+            string connectionString = "server=localhost;uid=programma;pwd=12345;database=speedrunning";
+            MySqlConnection connection = new MySqlConnection(connectionString);
+            connection.Open();
+            MySqlCommand com = new MySqlCommand(query, connection);
+            com.ExecuteNonQuery();
+            MySqlDataAdapter adapt = new MySqlDataAdapter(com);
+            DataTable data = new DataTable();
+            adapt.Fill(data);
+            SpeedrunnersTable.DataSource = data;
+            connection.Close();
+        }
     }
 }

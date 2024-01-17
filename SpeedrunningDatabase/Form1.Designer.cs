@@ -33,6 +33,12 @@
             this.SpeedrunnersButton = new System.Windows.Forms.Button();
             this.SpeedrunnersTable = new System.Windows.Forms.DataGridView();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.textBoxVG = new System.Windows.Forms.TextBox();
+            this.comboBoxVG = new System.Windows.Forms.ComboBox();
+            this.buttonYear = new System.Windows.Forms.Button();
+            this.buttonVG = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.VideogamesButton = new System.Windows.Forms.Button();
             this.VideogamesTable = new System.Windows.Forms.DataGridView();
             this.tabPage3 = new System.Windows.Forms.TabPage();
@@ -43,12 +49,12 @@
             this.label1 = new System.Windows.Forms.Label();
             this.SpeedrunsButton = new System.Windows.Forms.Button();
             this.SpeedrunsTable = new System.Windows.Forms.DataGridView();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.buttonVG = new System.Windows.Forms.Button();
-            this.buttonYear = new System.Windows.Forms.Button();
-            this.comboBoxVG = new System.Windows.Forms.ComboBox();
-            this.textBoxVG = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.textBoxS = new System.Windows.Forms.TextBox();
+            this.buttonS = new System.Windows.Forms.Button();
+            this.radioButtonM = new System.Windows.Forms.RadioButton();
+            this.radioButtonF = new System.Windows.Forms.RadioButton();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.SpeedrunnersTable)).BeginInit();
@@ -71,6 +77,12 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.label5);
+            this.tabPage1.Controls.Add(this.label6);
+            this.tabPage1.Controls.Add(this.textBoxS);
+            this.tabPage1.Controls.Add(this.buttonS);
+            this.tabPage1.Controls.Add(this.radioButtonM);
+            this.tabPage1.Controls.Add(this.radioButtonF);
             this.tabPage1.Controls.Add(this.SpeedrunnersButton);
             this.tabPage1.Controls.Add(this.SpeedrunnersTable);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
@@ -95,9 +107,9 @@
             // SpeedrunnersTable
             // 
             this.SpeedrunnersTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.SpeedrunnersTable.Location = new System.Drawing.Point(205, 17);
+            this.SpeedrunnersTable.Location = new System.Drawing.Point(313, 17);
             this.SpeedrunnersTable.Name = "SpeedrunnersTable";
-            this.SpeedrunnersTable.Size = new System.Drawing.Size(534, 340);
+            this.SpeedrunnersTable.Size = new System.Drawing.Size(426, 340);
             this.SpeedrunnersTable.TabIndex = 0;
             this.SpeedrunnersTable.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
@@ -119,6 +131,61 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Videogames";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // textBoxVG
+            // 
+            this.textBoxVG.Location = new System.Drawing.Point(9, 200);
+            this.textBoxVG.Name = "textBoxVG";
+            this.textBoxVG.Size = new System.Drawing.Size(100, 24);
+            this.textBoxVG.TabIndex = 7;
+            // 
+            // comboBoxVG
+            // 
+            this.comboBoxVG.FormattingEnabled = true;
+            this.comboBoxVG.Location = new System.Drawing.Point(9, 56);
+            this.comboBoxVG.Name = "comboBoxVG";
+            this.comboBoxVG.Size = new System.Drawing.Size(121, 26);
+            this.comboBoxVG.TabIndex = 6;
+            // 
+            // buttonYear
+            // 
+            this.buttonYear.Location = new System.Drawing.Point(32, 254);
+            this.buttonYear.Name = "buttonYear";
+            this.buttonYear.Size = new System.Drawing.Size(75, 23);
+            this.buttonYear.TabIndex = 5;
+            this.buttonYear.Text = "Filter";
+            this.buttonYear.UseVisualStyleBackColor = true;
+            this.buttonYear.Click += new System.EventHandler(this.buttonYear_Click);
+            // 
+            // buttonVG
+            // 
+            this.buttonVG.Location = new System.Drawing.Point(32, 104);
+            this.buttonVG.Name = "buttonVG";
+            this.buttonVG.Size = new System.Drawing.Size(75, 23);
+            this.buttonVG.TabIndex = 4;
+            this.buttonVG.Text = "Filter";
+            this.buttonVG.UseVisualStyleBackColor = true;
+            this.buttonVG.Click += new System.EventHandler(this.buttonVG_Click);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
+            this.label4.Location = new System.Drawing.Point(6, 166);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(288, 16);
+            this.label4.TabIndex = 3;
+            this.label4.Text = "Obtain all the games released on a certain year";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
+            this.label3.Location = new System.Drawing.Point(3, 23);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(255, 16);
+            this.label3.TabIndex = 2;
+            this.label3.Text = "Obtain all the games of a certain publisher";
             // 
             // VideogamesButton
             // 
@@ -161,7 +228,7 @@
             this.buttonG.Name = "buttonG";
             this.buttonG.Size = new System.Drawing.Size(75, 23);
             this.buttonG.TabIndex = 7;
-            this.buttonG.Text = "Esegui";
+            this.buttonG.Text = "Filter";
             this.buttonG.UseVisualStyleBackColor = true;
             this.buttonG.Click += new System.EventHandler(this.buttonG_Click);
             // 
@@ -171,7 +238,7 @@
             this.buttonR.Name = "buttonR";
             this.buttonR.Size = new System.Drawing.Size(75, 23);
             this.buttonR.TabIndex = 6;
-            this.buttonR.Text = "Riordina";
+            this.buttonR.Text = "Order";
             this.buttonR.UseVisualStyleBackColor = true;
             this.buttonR.Click += new System.EventHandler(this.buttonR_Click);
             // 
@@ -221,60 +288,66 @@
             this.SpeedrunsTable.Size = new System.Drawing.Size(467, 354);
             this.SpeedrunsTable.TabIndex = 0;
             // 
-            // label3
+            // label5
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
-            this.label3.Location = new System.Drawing.Point(3, 23);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(255, 16);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "Obtain all the games of a certain publisher";
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
+            this.label5.Location = new System.Drawing.Point(6, 161);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(284, 16);
+            this.label5.TabIndex = 3;
+            this.label5.Text = "Obtain all the speedrunners of a certain gender";
             // 
-            // label4
+            // label6
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
-            this.label4.Location = new System.Drawing.Point(6, 166);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(288, 16);
-            this.label4.TabIndex = 3;
-            this.label4.Text = "Obtain all the games released on a certain year";
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
+            this.label6.Location = new System.Drawing.Point(6, 26);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(301, 16);
+            this.label6.TabIndex = 4;
+            this.label6.Text = "Obtain all the speedrunners of a certain nationality";
             // 
-            // buttonVG
+            // textBoxS
             // 
-            this.buttonVG.Location = new System.Drawing.Point(32, 104);
-            this.buttonVG.Name = "buttonVG";
-            this.buttonVG.Size = new System.Drawing.Size(75, 23);
-            this.buttonVG.TabIndex = 4;
-            this.buttonVG.Text = "Filtra";
-            this.buttonVG.UseVisualStyleBackColor = true;
-            this.buttonVG.Click += new System.EventHandler(this.buttonVG_Click);
+            this.textBoxS.Location = new System.Drawing.Point(16, 70);
+            this.textBoxS.Name = "textBoxS";
+            this.textBoxS.Size = new System.Drawing.Size(100, 20);
+            this.textBoxS.TabIndex = 5;
             // 
-            // buttonYear
+            // buttonS
             // 
-            this.buttonYear.Location = new System.Drawing.Point(32, 254);
-            this.buttonYear.Name = "buttonYear";
-            this.buttonYear.Size = new System.Drawing.Size(75, 23);
-            this.buttonYear.TabIndex = 5;
-            this.buttonYear.Text = "Filtra";
-            this.buttonYear.UseVisualStyleBackColor = true;
-            this.buttonYear.Click += new System.EventHandler(this.buttonYear_Click);
+            this.buttonS.Location = new System.Drawing.Point(25, 113);
+            this.buttonS.Name = "buttonS";
+            this.buttonS.Size = new System.Drawing.Size(75, 23);
+            this.buttonS.TabIndex = 6;
+            this.buttonS.Text = "Filter";
+            this.buttonS.UseVisualStyleBackColor = true;
+            this.buttonS.Click += new System.EventHandler(this.buttonS_Click);
             // 
-            // comboBoxVG
+            // radioButtonM
             // 
-            this.comboBoxVG.FormattingEnabled = true;
-            this.comboBoxVG.Location = new System.Drawing.Point(9, 56);
-            this.comboBoxVG.Name = "comboBoxVG";
-            this.comboBoxVG.Size = new System.Drawing.Size(121, 26);
-            this.comboBoxVG.TabIndex = 6;
+            this.radioButtonM.AutoSize = true;
+            this.radioButtonM.Location = new System.Drawing.Point(31, 198);
+            this.radioButtonM.Name = "radioButtonM";
+            this.radioButtonM.Size = new System.Drawing.Size(48, 17);
+            this.radioButtonM.TabIndex = 8;
+            this.radioButtonM.TabStop = true;
+            this.radioButtonM.Text = "Male";
+            this.radioButtonM.UseVisualStyleBackColor = true;
+            this.radioButtonM.CheckedChanged += new System.EventHandler(this.radioButtonM_CheckedChanged);
             // 
-            // textBoxVG
+            // radioButtonF
             // 
-            this.textBoxVG.Location = new System.Drawing.Point(9, 200);
-            this.textBoxVG.Name = "textBoxVG";
-            this.textBoxVG.Size = new System.Drawing.Size(100, 24);
-            this.textBoxVG.TabIndex = 7;
+            this.radioButtonF.AutoSize = true;
+            this.radioButtonF.Location = new System.Drawing.Point(31, 244);
+            this.radioButtonF.Name = "radioButtonF";
+            this.radioButtonF.Size = new System.Drawing.Size(59, 17);
+            this.radioButtonF.TabIndex = 9;
+            this.radioButtonF.TabStop = true;
+            this.radioButtonF.Text = "Female";
+            this.radioButtonF.UseVisualStyleBackColor = true;
+            this.radioButtonF.CheckedChanged += new System.EventHandler(this.radioButtonF_CheckedChanged);
             // 
             // Form1
             // 
@@ -286,6 +359,7 @@
             this.Text = "Form1";
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
+            this.tabPage1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.SpeedrunnersTable)).EndInit();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
@@ -320,6 +394,12 @@
         private System.Windows.Forms.Button buttonVG;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox textBoxS;
+        private System.Windows.Forms.Button buttonS;
+        private System.Windows.Forms.RadioButton radioButtonM;
+        private System.Windows.Forms.RadioButton radioButtonF;
     }
 }
 
