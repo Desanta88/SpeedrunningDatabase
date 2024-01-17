@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
@@ -13,7 +14,7 @@ namespace SpeedrunningDatabase
 {
     public partial class Form1 : Form
     {
-
+        public int Countd=0;
         public Form1()
         {
             InitializeComponent();
@@ -79,6 +80,8 @@ namespace SpeedrunningDatabase
 
         private void VideogamesButton_Click(object sender, EventArgs e)
         {
+            List<string> list = new List<string>();
+            DataColumn c = (DataColumn)SpeedrunsTable.Columns[2].Clone();
             string connectionString = "server=localhost;uid=programma;pwd=12345;database=speedrunning";
             MySqlConnection connection = new MySqlConnection(connectionString);
             string VGQuery = "SELECT * FROM videogame";
@@ -107,6 +110,11 @@ namespace SpeedrunningDatabase
             adapt.Fill(data);
             SpeedrunsTable.DataSource = data;
             connection.Close();
+
+            SpeedrunCombo.DataSource = VideogamesTable.DataSource;
+            SpeedrunCombo.ValueMember = "Id";
+            SpeedrunCombo.DisplayMember = "Videogame";
         }
+
     }
 }
